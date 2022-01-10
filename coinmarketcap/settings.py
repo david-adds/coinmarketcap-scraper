@@ -86,3 +86,8 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+DOWNLOADER_MIDDLEWARES = {
+    # The priority of 560 is important, because we want this middleware to kick in just before the scrapy built-in `RetryMiddleware`.
+    'scrapy_cloudflare_middleware.middlewares.CloudFlareMiddleware': 560
+}
